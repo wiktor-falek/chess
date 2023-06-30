@@ -1,0 +1,33 @@
+.board {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  margin: auto;
+}
+
+.tile:nth-child(1n) {
+}
+
+.tile:nth-child(16n + 16),
+.tile:nth-child(16n + 14),
+.tile:nth-child(16n + 12),
+.tile:nth-child(16n + 10),
+.tile:nth-child(16n + 7),
+.tile:nth-child(16n + 5),
+.tile:nth-child(16n + 3),
+.tile:nth-child(16n + 1) {
+  background-color: rgb(195, 202, 138);
+}
+
+.tile {
+  background-color: rgb(121, 63, 63);
+  width: 64px;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
