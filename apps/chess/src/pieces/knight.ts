@@ -1,4 +1,4 @@
-import type { Color } from "../../..";
+import type { Color } from "../../index";
 import AbstractPiece from "./abstractPiece";
 
 class Knight extends AbstractPiece {

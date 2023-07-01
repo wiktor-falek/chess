@@ -1,10 +1,10 @@
-import type { Color } from "../../..";
+import type { Color } from "../../index";
 import AbstractPiece from "./abstractPiece";
 
-class Bishop extends AbstractPiece {
+class Rook extends AbstractPiece {
   constructor(public color: Color) {
     super(color);
   }
 }
 
-export default Bishop;
+export default Rook;

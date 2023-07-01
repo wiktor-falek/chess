@@ -1,9 +1,11 @@
-.board {
+#board {
   width: fit-content;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   margin: auto;
+  border: 1px solid rgb(129, 129, 129);
+  margin-top: 60px;
 }
 
 .square:nth-child(1n) {
@@ -22,8 +24,8 @@
 
 .square {
   background-color: #d18b47;
-  width: 64px;
-  height: 64px;
+  width: 84px;
+  height: 84px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -31,7 +33,12 @@
   justify-content: center;
 }
 
-.square > img {
-  width: 100%;
+.square {
+  /* background: url("../assets/king_white.svg"); */
+}
+
+.bishop--white {
   height: 100%;
+  width: 100%;
+  content: url("../assets/bishop_white.svg");
 }

@@ -1,4 +1,4 @@
-import { Bishop, King, Knight, Pawn, Queen, Rook } from "./pieces";
+import { Bishop, King, Knight, Pawn, Queen, Rook } from "./pieces/index";
 import Square from "./square";
 
 class Board {
@@ -59,7 +59,7 @@ class Board {
   }
 
   flatten() {
-    return this.squares.flat()
+    return this.squares.flat();
   }
 }
 

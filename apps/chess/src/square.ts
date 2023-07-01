@@ -1,4 +1,4 @@
-import { Piece } from "../..";
+import { Piece } from "../index";
 
 class Square {
   piece: Piece | null;
