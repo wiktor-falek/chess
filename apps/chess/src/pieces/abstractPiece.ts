@@ -1,7 +1,8 @@
-import type { Color } from "../../index";
+import type { Color, PieceName } from "../../index";
 
 abstract class AbstractPiece {
-  constructor(public color: Color) {
+  constructor(public name: PieceName, public color: Color) {
+    this.name = name;
     this.color = color;
   }
 }

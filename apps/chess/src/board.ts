@@ -29,7 +29,7 @@ class Board {
     this.squares[1][7] = new Square(7, 1, new Pawn("black"));
 
     // rows 6, 5, 4, 3
-    for (let row = 6; row > 2; row--) {
+    for (let row = 6; row > 1; row--) {
       for (let file = 0; file < 8; file++) {
         this.squares[row][file] = new Square(file, row);
       }
@@ -59,7 +59,7 @@ class Board {
   }
 
   flatten() {
-    return this.squares.flat();
+    return this.squares.flat()
   }
 }
 

@@ -3,7 +3,7 @@ import AbstractPiece from "./abstractPiece";
 
 class Bishop extends AbstractPiece {
   constructor(public color: Color) {
-    super(color);
+    super("bishop", color);
   }
 }
 

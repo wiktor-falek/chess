@@ -33,12 +33,74 @@
   justify-content: center;
 }
 
-.square {
-  /* background: url("../assets/king_white.svg"); */
+.pawn--white {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/pawn_white.svg");
+}
+
+.pawn--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/pawn_black.svg");
+}
+
+.knight--white {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/knight_white.svg");
+}
+
+.knight--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/knight_black.svg");
 }
 
 .bishop--white {
   height: 100%;
   width: 100%;
   content: url("../assets/bishop_white.svg");
+}
+
+.bishop--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/bishop_black.svg");
+}
+
+.rook--white {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/rook_white.svg");
+}
+
+.rook--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/rook_black.svg");
+}
+
+.queen--white {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/queen_white.svg");
+}
+
+.queen--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/queen_black.svg");
+}
+
+.king--white {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/king_white.svg");
+}
+
+.king--black {
+  height: 100%;
+  width: 100%;
+  content: url("../assets/king_black.svg");
 }
