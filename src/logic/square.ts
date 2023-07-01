@@ -1,6 +1,6 @@
 import { Piece } from "../..";
 
-class Tile {
+class Square {
   piece: Piece | null;
   constructor(public x: number, public y: number, piece: Piece | null = null) {
     this.x = x;
@@ -9,4 +9,4 @@ class Tile {
   }
 }
 
-export default Tile;
+export default Square;
