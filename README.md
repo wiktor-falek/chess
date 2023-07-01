@@ -4,3 +4,8 @@
 - [ ] Frontend
 - [ ] WebSocket server
 - [ ] Chess engine from scratch
+
+### Technologies
+
+- TypeScript
+- Webpack
