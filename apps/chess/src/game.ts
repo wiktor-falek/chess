@@ -43,7 +43,18 @@ class Game {
       return false;
     }
 
-    // TODO: validate if the move is legal
+    // prevent move that does not change the position
+    if (fromX === toX && fromY === toY) {
+      return false;
+    }
+
+    // TODO: prevent illegal moves
+    // this includes:
+    //   piece not being able to move to the square by convention (bishop goes only diagonally)
+    //   piece jumping over other pieces (except knight)
+    //   capturing your own pieces
+    //   king being in check, and the move not preventing the check
+    //   king will be in check after the move
 
     this.board.move(fromX, fromY, toX, toY);
 
