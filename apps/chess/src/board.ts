@@ -7,6 +7,16 @@ class Board {
     this.squares = [[], [], [], [], [], [], [], []];
   }
 
+  getSquare(x: number, y: number) {
+    return this.squares[y][x];
+  }
+
+  move(fromX: number, fromY: number, toX: number, toY: number) {
+    const fromPiece = this.getSquare(fromX, fromY).piece;
+    this.squares[fromY][fromX].piece = null;
+    this.squares[toY][toX].piece = fromPiece;
+  }
+
   setup() {
     // row 8
     this.squares[0][0] = new Square(0, 0, new Rook("black"));
@@ -59,7 +69,7 @@ class Board {
   }
 
   flatten() {
-    return this.squares.flat()
+    return this.squares.flat();
   }
 }
 

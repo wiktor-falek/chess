@@ -1,5 +1,9 @@
+import { Color } from "../index";
+
 class Player {
-  constructor() {}
+  constructor(public color: Color) {
+    this.color = color;
+  }
 }
 
 export default Player;

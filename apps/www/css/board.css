@@ -6,6 +6,7 @@
   margin: auto;
   border: 1px solid rgb(129, 129, 129);
   margin-top: 60px;
+  user-select: none;
 }
 
 .square:nth-child(1n) {
@@ -19,11 +20,13 @@
 .square:nth-child(16n + 5),
 .square:nth-child(16n + 3),
 .square:nth-child(16n + 1) {
-  background-color: #ffce9e;
+  background-color: #f0d9b5;
+  color: #b58863;
 }
 
 .square {
-  background-color: #d18b47;
+  background-color: #b58863;
+  color: #f0d9b5;
   width: 84px;
   height: 84px;
   margin: 0;
@@ -31,6 +34,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.square > p {
+  margin: 2px;
+  line-height: 1em;
+  font-size: 1.3cqw;
+  user-select: none;
+}
+
+.square > p:nth-of-type(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.square p:nth-of-type(2) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .pawn--white {
