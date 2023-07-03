@@ -4,7 +4,8 @@ import "../css/board.css";
 import Game from "../../chess/dist/game";
 
 const boardElement: HTMLDivElement = document.querySelector("#board");
-// const toMoveElement: HTMLParagraphElement = document.querySelector("#to-move");
+const toMoveColorElement: HTMLSpanElement =
+  document.querySelector("#to-move__color");
 
 if (boardElement === null) {
   throw new Error("Element #board does not exist");
@@ -60,6 +61,7 @@ function dragDrop(e: Event) {
   const hasMoved = game.move(fromX, fromY, toX, toY);
 
   if (hasMoved) {
+    // move the image from one square to another
     const pieceImgElement = draggedSquareElement.firstChild;
     draggedSquareElement.removeChild(pieceImgElement);
 
@@ -67,6 +69,9 @@ function dragDrop(e: Event) {
       dropSquareElement.removeChild(dropSquareElement.firstChild);
     }
     dropSquareElement.appendChild(pieceImgElement);
+
+    // update current turn indicator
+    toMoveColorElement.innerHTML = game.currentTurn.color;
   }
 }
 

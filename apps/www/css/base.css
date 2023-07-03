@@ -8,3 +8,7 @@ body {
   color: #eee;
   text-align: center;
 }
+
+#to-move::first-letter {
+  text-transform: uppercase;
+}
