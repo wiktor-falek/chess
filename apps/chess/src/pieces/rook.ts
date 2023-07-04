@@ -11,24 +11,16 @@ class Rook extends AbstractPiece {
   moveSquares(currentSquare: Square) {
     const { x, y } = currentSquare;
 
-    const moves = [
-      [x, 0],
-      [x, 1],
-      [x, 2],
-      [x, 3],
-      [x, 4],
-      [x, 5],
-      [x, 6],
-      [x, 7],
-      [0, y],
-      [1, y],
-      [2, y],
-      [3, y],
-      [4, y],
-      [5, y],
-      [6, y],
-      [7, y],
-    ].filter((pos) => pos[0] !== x || pos[1] !== y); // exclude the occupied square
+    const moves = [];
+
+    for (let i = -7; i < 8; i++) {
+      if (y !== i) {
+        moves.push([x, i]);
+      }
+      if (x !== i) {
+        moves.push([i, y]);
+      }
+    }
 
     console.log(moves);
     return moves;
