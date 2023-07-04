@@ -37,25 +37,6 @@
   position: relative;
 }
 
-.square > p {
-  margin: 2px;
-  line-height: 1em;
-  font-size: 1.3cqw;
-  user-select: none;
-}
-
-.square > p:nth-of-type(1) {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.square p:nth-of-type(2) {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
 .square--movable:hover {
   background-color: #95b079 !important;
 }
