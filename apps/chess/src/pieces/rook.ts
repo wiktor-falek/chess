@@ -22,7 +22,6 @@ class Rook extends AbstractPiece {
       }
     }
 
-    console.log(moves);
     return moves;
   }
 }

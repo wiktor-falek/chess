@@ -15,7 +15,7 @@ class Board {
   move(fromX: number, fromY: number, toX: number, toY: number) {
     const fromPiece = this.getSquare(fromX, fromY)?.piece;
     if (!fromPiece) {
-      // out of bounds
+      // square out of bounds or piece does not exist
       return false;
     }
     this.squares[fromY][fromX].piece = null;
