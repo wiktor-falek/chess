@@ -44,7 +44,7 @@ function dragStart(e: Event) {
   if (validMoves === null) {
     const x = +draggedSquareElement.getAttribute("x");
     const y = +draggedSquareElement.getAttribute("y");
-    validMoves = game.validMoves(x, y);
+    validMoves = game.getValidMoves(x, y);
     for (const [x, y] of validMoves) {
       const squareElement = document.querySelector(
         `.square[x="${x}"][y="${y}"]`
