@@ -30,6 +30,14 @@ class Game {
     return this;
   }
 
+  validMoves(x: number, y: number) {
+    const square = this.board.getSquare(x, y);
+
+    if (square === null || square.piece === null) return null;
+
+    return square.piece.moveSquares(square);
+  }
+
   move(fromX: number, fromY: number, toX: number, toY: number): boolean {
     const fromSquare = this.board.getSquare(fromX, fromY);
 
@@ -39,7 +47,7 @@ class Game {
     }
 
     // prevent player from moving a piece of another player
-    if (fromSquare.piece?.color !== this.currentTurn.color) {
+    if (fromSquare?.piece?.color !== this.currentTurn.color) {
       return false;
     }
 
@@ -56,7 +64,11 @@ class Game {
     //   king being in check, and the move not preventing the check
     //   king will be in check after the move
 
-    this.board.move(fromX, fromY, toX, toY);
+    const moveOccurred = this.board.move(fromX, fromY, toX, toY);
+
+    if (!moveOccurred) {
+      return false;
+    }
 
     this.currentTurn =
       this.currentTurn.color === "white" ? this.black : this.white;

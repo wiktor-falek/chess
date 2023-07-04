@@ -8,13 +8,19 @@ class Board {
   }
 
   getSquare(x: number, y: number) {
+    if (x < 0 || y < 0 || x > 7 || y > 7) return null;
     return this.squares[y][x];
   }
 
   move(fromX: number, fromY: number, toX: number, toY: number) {
-    const fromPiece = this.getSquare(fromX, fromY).piece;
+    const fromPiece = this.getSquare(fromX, fromY)?.piece;
+    if (!fromPiece) {
+      return false;
+    }
     this.squares[fromY][fromX].piece = null;
     this.squares[toY][toX].piece = fromPiece;
+    fromPiece.hasMoved = true;
+    return true;
   }
 
   setup() {

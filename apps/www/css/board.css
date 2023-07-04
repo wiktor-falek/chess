@@ -56,6 +56,24 @@
   right: 0;
 }
 
+.square--movable:hover {
+  background-color: #95b079 !important;
+}
+
+.square--movable::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #95b079;
+}
+
+.square--movable:hover::after {
+  width: 0px;
+  height: 0px;
+}
+
 .pawn--white {
   height: 100%;
   width: 100%;

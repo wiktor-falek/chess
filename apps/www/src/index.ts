@@ -35,10 +35,25 @@ const board = game.board;
 })();
 
 let draggedSquareElement: HTMLDivElement;
+let validMoves: Array<Array<number>> | null = null;
 function dragStart(e: Event) {
   e.preventDefault();
   const draggedPieceElement = e.target as HTMLImageElement;
   draggedSquareElement = draggedPieceElement.parentElement as HTMLDivElement;
+
+  if (validMoves === null) {
+    const x = +draggedSquareElement.getAttribute("x");
+    const y = +draggedSquareElement.getAttribute("y");
+    validMoves = game.validMoves(x, y);
+    for (const [x, y] of validMoves) {
+      const squareElement = document.querySelector(
+        `.square[x="${x}"][y="${y}"]`
+      );
+      if (squareElement) {
+        squareElement.classList.add("square--movable");
+      }
+    }
+  }
 }
 
 function dragOver(e: Event) {
@@ -47,6 +62,7 @@ function dragOver(e: Event) {
 
 function dragDrop(e: Event) {
   e.preventDefault();
+
   const dropElement = e.target as HTMLElement; // .square OR .square > img.piece
 
   const dropSquareElement = dropElement.classList.contains("piece")
@@ -75,6 +91,16 @@ function dragDrop(e: Event) {
   }
 }
 
+function dragEnd(e: Event) {
+  for (const [x, y] of validMoves) {
+    const squareElement = document.querySelector(`.square[x="${x}"][y="${y}"]`);
+    if (squareElement) {
+      squareElement.classList.remove("square--movable");
+    }
+  }
+  validMoves = null;
+}
+
 const pieceElements = boardElement.querySelectorAll(".square > img.piece");
 pieceElements.forEach((piece) => {
   piece.addEventListener("drag", dragStart);
@@ -84,4 +110,5 @@ const squareElements = boardElement.querySelectorAll(".square");
 squareElements.forEach((square, i) => {
   square.addEventListener("dragover", dragOver);
   square.addEventListener("drop", dragDrop);
+  square.addEventListener("dragend", dragEnd);
 });
