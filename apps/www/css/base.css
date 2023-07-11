@@ -9,6 +9,35 @@ body {
   text-align: center;
 }
 
-#to-move::first-letter {
-  text-transform: uppercase;
+.player__top {
+  display: flex;
+  flex-direction: row;
+}
+
+.player__top__name {
+  padding: 10px 0;
+  width: 200px;
+  border: 2px solid white;
+}
+.player__top__timer {
+  padding: 10px 0;
+  width: 120px;
+  border: 2px solid white;
+  border-left: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.something {
+  display: flex;
+  text-align: center;
+  width: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 400px;
 }
