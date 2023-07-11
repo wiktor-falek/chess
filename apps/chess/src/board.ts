@@ -73,8 +73,6 @@ class Board {
     this.squares[7][6] = new Square(6, 7, new Knight("white"));
     this.squares[7][7] = new Square(7, 7, new Rook("white"));
 
-    this.squares[4][4] = new Square(4, 4, new Rook("white"));
-
     return this.squares;
   }
 
