@@ -21,6 +21,7 @@ class Board {
     this.squares[fromY][fromX].piece = null;
     this.squares[toY][toX].piece = fromPiece;
     fromPiece.hasMoved = true;
+    console.log(this.squares);
     return true;
   }
 
@@ -71,6 +72,8 @@ class Board {
     this.squares[7][5] = new Square(5, 7, new Bishop("white"));
     this.squares[7][6] = new Square(6, 7, new Knight("white"));
     this.squares[7][7] = new Square(7, 7, new Rook("white"));
+
+    this.squares[4][4] = new Square(4, 4, new Rook("white"));
 
     return this.squares;
   }

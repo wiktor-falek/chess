@@ -1,5 +1,7 @@
 import type { Color } from "../../index";
+import Board from "../board";
 import Square from "../square";
+import applyFilters from "../utils/applyFilters";
 import AbstractPiece from "./abstractPiece";
 
 class King extends AbstractPiece {
@@ -7,7 +9,7 @@ class King extends AbstractPiece {
     super("king", color);
   }
 
-  moveSquares(currentSquare: Square) {
+  moveSquares(currentSquare: Square, board: Board): number[][] {
     const { x, y } = currentSquare;
 
     const moves = [
@@ -21,7 +23,9 @@ class King extends AbstractPiece {
       [x - 1, y + 1],
     ];
 
-    return moves;
+    // TODO: castle
+
+    return applyFilters(moves, board, this);
   }
 }
 

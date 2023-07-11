@@ -1,5 +1,7 @@
 import type { Color } from "../../index";
+import Board from "../board";
 import Square from "../square";
+import applyFilters from "../utils/applyFilters";
 import AbstractPiece from "./abstractPiece";
 
 class Queen extends AbstractPiece {
@@ -7,10 +9,11 @@ class Queen extends AbstractPiece {
     super("queen", color);
   }
 
-  moveSquares(currentSquare: Square) {
+  moveSquares(currentSquare: Square, board: Board): number[][] {
     const { x, y } = currentSquare;
     const moves = [];
 
+    // take Bishop and Rook move squares (static methods?)
     for (let i = -7; i < 8; i++) {
       if (i !== 0) {
         moves.push([x + i, y + i]);
@@ -24,7 +27,7 @@ class Queen extends AbstractPiece {
       }
     }
 
-    return moves;
+    return applyFilters(moves, board, this);
   }
 }
 

@@ -27,8 +27,8 @@
 .square {
   background-color: #b58863;
   color: #f0d9b5;
-  width: 84px;
-  height: 84px;
+  width: 64px;
+  height: 64px;
   margin: 0;
   padding: 0;
   display: flex;

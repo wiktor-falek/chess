@@ -1,7 +1,7 @@
 import "../css/base.css";
 import "../css/board.css";
 
-import Game from "../../chess/dist/game";
+import Game from "../../chess/src/game";
 
 const boardElement: HTMLDivElement = document.querySelector("#board");
 const toMoveColorElement: HTMLSpanElement =
@@ -35,8 +35,9 @@ const board = game.board;
 })();
 
 let draggedSquareElement: HTMLDivElement;
-let validMoves: Array<Array<number>> | null = null;
+let validMoves: number[][] | null = null;
 function dragStart(e: Event) {
+  console.log("drag start");
   e.preventDefault();
   const draggedPieceElement = e.target as HTMLImageElement;
   draggedSquareElement = draggedPieceElement.parentElement as HTMLDivElement;
@@ -44,7 +45,7 @@ function dragStart(e: Event) {
   if (validMoves === null) {
     const x = +draggedSquareElement.getAttribute("x");
     const y = +draggedSquareElement.getAttribute("y");
-    validMoves = game.getValidMoves(x, y);
+    validMoves = game.getLegalMoves(x, y);
     for (const [x, y] of validMoves) {
       const squareElement = document.querySelector(
         `.square[x="${x}"][y="${y}"]`
@@ -57,10 +58,12 @@ function dragStart(e: Event) {
 }
 
 function dragOver(e: Event) {
+  console.log("drag over");
   e.preventDefault();
 }
 
 function dragDrop(e: Event) {
+  console.log("drag drop");
   e.preventDefault();
 
   const dropElement = e.target as HTMLElement; // .square OR .square > img.piece
@@ -92,6 +95,7 @@ function dragDrop(e: Event) {
 }
 
 function dragEnd(e: Event) {
+  console.log("drag end");
   for (const [x, y] of validMoves) {
     const squareElement = document.querySelector(`.square[x="${x}"][y="${y}"]`);
     if (squareElement) {

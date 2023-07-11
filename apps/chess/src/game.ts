@@ -30,53 +30,55 @@ class Game {
     return this;
   }
 
-  getValidMoves(x: number, y: number) {
+  getLegalMoves(x: number, y: number) {
     const square = this.board.getSquare(x, y);
     const piece = square?.piece;
 
-    if (!square || !piece) return null;
+    if (!square || !piece) return [];
 
-    const validMoves = piece.moveSquares(square);
+    const legalMoves = piece.moveSquares(square, this.board);
 
-    // TODO: filter the moves
-    //   piece jumping over other pieces (except knight)
-    //   capturing your own pieces
-    //   king being in check, and the move not preventing the check
-    //   king will be in check after the move
-    //   pawn captures with no target piece
-
-    return validMoves;
+    return legalMoves;
   }
 
   move(fromX: number, fromY: number, toX: number, toY: number): boolean {
     const fromSquare = this.board.getSquare(fromX, fromY);
     const piece = fromSquare?.piece;
 
+    console.log("move()");
+
     // game has ended
     if (this.state !== "ONGOING") {
+      console.error("game has ended");
       return false;
     }
 
     // piece does not exist
     if (!piece) {
+      console.error("piece does not exist");
       return false;
     }
 
     // piece does not belong to current player
-    // TODO: remove this once getValidMoves handles it
+    // TODO: remove this once getLegalMoves handles it
     if (piece.color !== this.currentTurn.color) {
+      console.log("not your turn");
       return false;
     }
 
-    const validMoves = this.getValidMoves(fromSquare.x, fromSquare.y);
+    const legalMoves = this.getLegalMoves(fromSquare.x, fromSquare.y);
 
-    // move is not valid
-    if (validMoves === null || !validMoves.includes([toX, toY])) {
+    const moveIsValid =
+      legalMoves.filter((pos) => pos[0] === toX && pos[1] === toY).length === 1;
+
+    if (!moveIsValid) {
+      console.error("invalid move", { legalMoves });
       return false;
     }
 
     const moveOccurred = this.board.move(fromX, fromY, toX, toY);
     if (!moveOccurred) {
+      console.error("failed to move");
       return false;
     }
 
