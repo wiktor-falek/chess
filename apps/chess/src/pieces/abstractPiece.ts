@@ -10,7 +10,7 @@ abstract class AbstractPiece {
     this.hasMoved = false;
   }
 
-  abstract moveSquares(currentSquare: Square, board: Board): number[][];
+  // abstract moveSquares(currentSquare: Square, board: Board): number[][];
 }
 
 export default AbstractPiece;

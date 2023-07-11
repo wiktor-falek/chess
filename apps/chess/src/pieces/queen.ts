@@ -13,17 +13,85 @@ class Queen extends AbstractPiece {
     const { x, y } = currentSquare;
     const moves = [];
 
-    // take Bishop and Rook move squares (static methods?)
-    for (let i = -7; i < 8; i++) {
-      if (i !== 0) {
-        moves.push([x + i, y + i]);
-        moves.push([x + i, y - i]);
+    // Bishop moves TODO: reuse from Bishop class
+    // left top
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x - i, y - i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
       }
-      if (y !== i) {
-        moves.push([x, i]);
+    }
+
+    // right top
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x + i, y - i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
       }
-      if (x !== i) {
-        moves.push([i, y]);
+    }
+
+    // right bottom
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x + i, y + i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
+      }
+    }
+
+    // left bottom
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x - i, y + i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
+      }
+    }
+
+    // Rook moves TODO: reuse from Rook class
+    // top
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x, y - i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
+      }
+    }
+
+    // bottom
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x, y + i];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
+      }
+    }
+
+    // left
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x - i, y];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
+      }
+    }
+
+    // right
+    for (let i = 1; i < 8; i++) {
+      const pos: [number, number] = [x + i, y];
+      const piece = board.getSquare(...pos)?.piece;
+      moves.push(pos);
+      if (piece) {
+        break;
       }
     }
 
