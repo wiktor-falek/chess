@@ -25,6 +25,15 @@ class Board {
     return true;
   }
 
+  isInCheck() {
+    // TODO: check if is in check :)
+
+    /*
+    
+    */
+    return false;
+  }
+
   setup() {
     // row 8
     this.squares[0][0] = new Square(0, 0, new Rook("black"));

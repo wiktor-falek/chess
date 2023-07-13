@@ -9,7 +9,7 @@ class Knight extends AbstractPiece {
     super("knight", color);
   }
 
-  moveSquares(currentSquare: Square, board: Board) {
+  moveSquares(currentSquare: Square, board: Board): number[][] {
     const { x, y } = currentSquare;
 
     const moves = [

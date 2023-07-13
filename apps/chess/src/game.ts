@@ -69,7 +69,7 @@ class Game {
     const legalMoves = this.getLegalMoves(fromSquare.x, fromSquare.y);
 
     const moveIsValid =
-      legalMoves.filter((pos) => pos[0] === toX && pos[1] === toY).length === 1;
+      legalMoves.findIndex((pos) => pos[0] === toX && pos[1] === toY) !== -1;
 
     if (!moveIsValid) {
       console.error("invalid move", { legalMoves });
