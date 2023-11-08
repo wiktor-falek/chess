@@ -5,7 +5,7 @@
 - [ ] WebSocket server
 - [ ] Chess engine from scratch
 
-### Technologies
+### Technologies Used
 
 - TypeScript
 - Webpack
